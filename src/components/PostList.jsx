@@ -14,6 +14,7 @@ function PostList(props) {
           index={i}
           onNewLike={props.onNewLike}
           onNewDislike={props.onNewDislike}
+          formattedWaitTime={post.formattedWaitTime}
            />
       )}
     </div>

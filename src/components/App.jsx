@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import DiscussionBoard from './DiscussionBoard';
 import Header from './Header';
+import Moment from 'moment';
 
 class App extends React.Component {
 
@@ -18,6 +19,7 @@ class App extends React.Component {
 
   handleAddingNewPost(newPost){
     var newMasterPostList = this.state.masterPostList.slice();
+    newPost.formattedWaitTime = (newPost.timePosted).fromNow(true);
     newMasterPostList.push(newPost);
     this.setState({masterPostList: newMasterPostList});
   }
@@ -32,6 +34,24 @@ class App extends React.Component {
 
    copyMList[i].dislikes = copyMList[i].dislikes + 1 
    this.setState({masterPostList: copyMList})
+  }
+
+  componentDidMount(){
+    this.waitTimeUpdateTimer = setInterval(() =>
+      this.updatePostElapsedTime(),
+      60000
+    );
+  }
+  updatePostElapsedTime(){
+    console.log("check");
+    let newMasterPostList = this.state.masterPostList.slice();
+    newMasterPostList.forEach((post) =>
+      post.formattedWaitTime = (post.timePosted).fromNow(true)
+    );
+    this.setState({masterPostList: newMasterPostList})
+  }
+  componentWillUnmount(){
+    clearInterval(this.waitTimeUpdateTimer);
   }
 
 

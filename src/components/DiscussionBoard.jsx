@@ -7,7 +7,7 @@ function DiscussionBoard(props){
 
   return (
     <div>
-      <PostList  postList={props.postList} onNewLike={props.onNewLike} onNewDislike={props.onNewDislike}/>
+      <PostList postList={props.postList} onNewLike={props.onNewLike} onNewDislike={props.onNewDislike}/>
       <NewPostForm onNewPostCreation={props.onNewPostCreation}/>
     </div>
   );
