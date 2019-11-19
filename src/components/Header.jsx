@@ -18,8 +18,8 @@ function Header() {
     <div>
       <h1 style={centerStyle}>Discussion Forum</h1>
       <div style={centerStyle}>
-        <Link style={btnStyle} className="waves-effect waves-light btn" to="/"><i className="material-icons left">cloud</i>Home</Link>
-        <Link style={btnStyle} className="waves-effect waves-light btn" to="/discussion"><i className="material-icons left">cloud</i>Discussion Board</Link>
+        <Link style={btnStyle} className="waves-effect waves-light btn" to="/"><i className="material-icons left">home</i>Home</Link>
+        <Link style={btnStyle} className="waves-effect waves-light btn" to="/discussion"><i className="material-icons left">forum</i>Discussion Board</Link>
       </div>
     </div>
   );
