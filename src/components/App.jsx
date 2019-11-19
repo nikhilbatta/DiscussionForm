@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import DiscussionBoard from './DiscussionBoard';
 import Header from './Header';
-import Moment from 'moment';
 
 class App extends React.Component {
 
@@ -24,31 +23,28 @@ class App extends React.Component {
     this.setState({masterPostList: newMasterPostList});
   }
   handleLikes(i){
-    console.log(this.state.masterPostList)
-   var copyMList = this.state.masterPostList
-   copyMList[i].likes = copyMList[i].likes + 1 
-   this.setState({masterPostList: copyMList})
+    var copyMList = this.state.masterPostList;
+    copyMList[i].likes = copyMList[i].likes + 1; 
+    this.setState({masterPostList: copyMList});
   }
   handleDislikes(i){
-    var copyMList = this.state.masterPostList
-
-   copyMList[i].dislikes = copyMList[i].dislikes + 1 
-   this.setState({masterPostList: copyMList})
+    var copyMList = this.state.masterPostList;
+    copyMList[i].dislikes = copyMList[i].dislikes + 1; 
+    this.setState({masterPostList: copyMList});
   }
 
   componentDidMount(){
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updatePostElapsedTime(),
-      60000
+    60000
     );
   }
   updatePostElapsedTime(){
-    console.log("check");
     let newMasterPostList = this.state.masterPostList.slice();
     newMasterPostList.forEach((post) =>
       post.formattedWaitTime = (post.timePosted).fromNow(true)
     );
-    this.setState({masterPostList: newMasterPostList})
+    this.setState({masterPostList: newMasterPostList});
   }
   componentWillUnmount(){
     clearInterval(this.waitTimeUpdateTimer);
@@ -57,7 +53,7 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className='container'>
         <Header/>
         <Switch>
           <Route exact path='/' component={Homepage} />
