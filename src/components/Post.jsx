@@ -21,25 +21,34 @@ function Post(props) {
     marginTop: '10px',
     marginBottom: '10px'
   };
+  var centerStyle = {
+    textAlign: 'center'
+  };
+  var cardStyle = {
+    width: '60%',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  };
   return (
-    <div>
-      <div className="row">
-        <div className="col s12 m6">
+    <div style={cardStyle}>
+      {/* <div className="row">
+        <div className="col s12 m6"> */}
           <div className="card blue-grey darken-1">
             <div className="card-content white-text">
               <span className="card-title">{props.content}</span>
               <p>Likes: {props.likes} </p>
               <p>Dislikes: {props.dislikes} </p>
               <p>Posted: {props.formattedWaitTime} ago</p>
-              <p>
-                <button style={btnStyle} className="btn waves-effect waves-light" onClick={handleLikeClick}><i className="large material-icons">thumb_up</i></button>
-                <button style={btnStyle} className="btn waves-effect waves-light" onClick={handleDislikeClick}><i className="large material-icons">thumb_down</i></button>
-                <button style={btnStyle} className="btn waves-effect waves-light" onClick={handleDeletePost}><i className="large material-icons">delete</i></button>
-              </p>
+              <div style={centerStyle}>
+                <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleLikeClick}><i className="material-icons">thumb_up</i></button>
+                <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDislikeClick}><i className="material-icons">thumb_down</i></button>
+                <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDeletePost}><i className="material-icons">delete</i></button>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
     </div>
   );
 }

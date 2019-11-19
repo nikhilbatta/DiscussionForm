@@ -25,9 +25,16 @@ function NewPostForm(props) {
     marginTop: '10px',
     marginBottom: '10px'
   };
+  var formStyle = {
+    width: '65%',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: '50px'
+  };
 
   return (
-    <div>
+    <div style={formStyle}>
       <form onSubmit={handleNewPostSubmission}>
         <style jsx>{`
             .input-field textarea:focus {
