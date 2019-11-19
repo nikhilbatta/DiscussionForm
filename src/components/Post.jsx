@@ -10,6 +10,9 @@ function Post(props) {
   function handleDislikeClick(){
     props.onNewDislike(props.index);
   }
+  function handleDeletePost(){
+    props.onDeletePost(props.index);
+  }
   var btnStyle = {
     backgroundColor: 'white',
     color: 'black',
@@ -29,8 +32,9 @@ function Post(props) {
               <p>Dislikes: {props.dislikes} </p>
               <p>Posted: {props.formattedWaitTime} ago</p>
               <p>
-                <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleLikeClick}><i className="material-icons left">thumb_up</i>Like</button>
-                <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDislikeClick}><i className="material-icons left">thumb_down</i>Dislike</button>
+                <button style={btnStyle} className="btn waves-effect waves-light" onClick={handleLikeClick}><i className="large material-icons">thumb_up</i></button>
+                <button style={btnStyle} className="btn waves-effect waves-light" onClick={handleDislikeClick}><i className="large material-icons">thumb_down</i></button>
+                <button style={btnStyle} className="btn waves-effect waves-light" onClick={handleDeletePost}><i className="large material-icons">delete</i></button>
               </p>
             </div>
           </div>
@@ -47,7 +51,8 @@ Post.propTypes = {
   onNewLike: PropTypes.func,
   onNewDislike: PropTypes.func,
   index: PropTypes.number,
-  formattedWaitTime: PropTypes.string.isRequired
+  formattedWaitTime: PropTypes.string.isRequired,
+  onDeletePost: PropTypes.func
 };
 
 export default Post;

@@ -17,6 +17,7 @@ function PostList(props) {
           onNewLike={props.onNewLike}
           onNewDislike={props.onNewDislike}
           formattedWaitTime={post.formattedWaitTime}
+          onDeletePost={props.onDeletePost}
         />
       )}
     </div>
@@ -28,7 +29,8 @@ PostList.propTypes = {
   likes: PropTypes.number,
   dislikes: PropTypes.number,
   onNewLike: PropTypes.func,
-  onNewDislike: PropTypes.func
+  onNewDislike: PropTypes.func,
+  onDeletePost: PropTypes.func
 };
 
 export default PostList;

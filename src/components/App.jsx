@@ -14,6 +14,7 @@ class App extends React.Component {
     this.handleAddingNewPost = this.handleAddingNewPost.bind(this);
     this.handleLikes = this.handleLikes.bind(this);
     this.handleDislikes = this.handleDislikes.bind(this);
+    this.handleDeletePost = this.handleDeletePost.bind(this);
   }
 
   handleAddingNewPost(newPost){
@@ -30,6 +31,12 @@ class App extends React.Component {
   handleDislikes(i){
     var copyMList = this.state.masterPostList;
     copyMList[i].dislikes = copyMList[i].dislikes + 1; 
+    this.setState({masterPostList: copyMList});
+  }
+  handleDeletePost(i){
+    console.log(i);
+    var copyMList = this.state.masterPostList;
+    copyMList.splice(i, 1);
     this.setState({masterPostList: copyMList});
   }
 
@@ -61,7 +68,8 @@ class App extends React.Component {
             onNewPostCreation={this.handleAddingNewPost} 
             postList={this.state.masterPostList}
             onNewLike={this.handleLikes}
-            onNewDislike={this.handleDislikes}/>} />
+            onNewDislike={this.handleDislikes}
+            onDeletePost={this.handleDeletePost}/>} />
         </Switch>
       </div>
     );
