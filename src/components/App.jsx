@@ -34,7 +34,6 @@ class App extends React.Component {
     this.setState({masterPostList: copyMList});
   }
   handleDeletePost(i){
-    console.log(i);
     var copyMList = this.state.masterPostList;
     copyMList.splice(i, 1);
     this.setState({masterPostList: copyMList});

@@ -6,7 +6,6 @@ function PostList(props) {
   props.postList.sort((a,b) => b.likes - a.likes);
   return (
     <div>
-
       {props.postList.map((post,i) =>
         <Post
           content={post.content}
