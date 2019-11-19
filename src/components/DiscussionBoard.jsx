@@ -7,7 +7,7 @@ function DiscussionBoard(props){
 
   return (
     <div>
-      <PostList postList={props.postList}/>
+      <PostList  postList={props.postList} onNewLike={props.onNewLike} onNewDislike={props.onNewDislike}/>
       <NewPostForm onNewPostCreation={props.onNewPostCreation}/>
     </div>
   );
@@ -15,7 +15,11 @@ function DiscussionBoard(props){
 
 DiscussionBoard.propTypes = {
   onNewPostCreation: PropTypes.func,
-  postList: PropTypes.array
+  postList: PropTypes.array,
+  likes: PropTypes.number,
+  dislikes: PropTypes.number,
+  onNewLike: PropTypes.func,
+  onNewDislike: PropTypes.func
 };
 
 export default DiscussionBoard;

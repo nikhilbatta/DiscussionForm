@@ -5,10 +5,12 @@ import { v4 } from 'uuid';
 function NewPostForm(props) {
 
   let _content = null;
+  let _likes = 0;
+  let _dislikes = 0; 
 
   function handleNewPostSubmission(event) {
     event.preventDefault();
-    props.onNewPostCreation({content: _content.value, id: v4()});
+    props.onNewPostCreation({content: _content.value, likes: _likes, dislikes: _dislikes, id: v4()});
     _content.value = '';
   }
 
