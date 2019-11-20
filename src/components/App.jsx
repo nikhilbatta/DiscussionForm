@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import Homepage from './Homepage';
 import DiscussionBoard from './DiscussionBoard';
 import Header from './Header';
+import Admin from './Admin';
+import Error404 from './Error404'
 
 class App extends React.Component {
 
@@ -69,6 +71,8 @@ class App extends React.Component {
             onNewLike={this.handleLikes}
             onNewDislike={this.handleDislikes}
             onDeletePost={this.handleDeletePost}/>} />
+            <Route path='/admin' render={(props)=><Admin postList={this.state.masterPostList} currentRouterPath={props.location.pathname} /> }/>
+            <Route component={Error404}/>
         </Switch>
       </div>
     );
