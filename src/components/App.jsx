@@ -71,7 +71,7 @@ class App extends React.Component {
             onNewLike={this.handleLikes}
             onNewDislike={this.handleDislikes}
             onDeletePost={this.handleDeletePost}/>} />
-            <Route path='/admin' render={(props)=><Admin postList={this.state.masterPostList} currentRouterPath={props.location.pathname} /> }/>
+            <Route path='/admin' render={(props)=><Admin postList={this.state.masterPostList} currentRouterPath={props.location.pathname} onDelete={this.handleDeletePost}/> }/>
             <Route component={Error404}/>
         </Switch>
       </div>

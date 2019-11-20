@@ -30,23 +30,38 @@ function Post(props) {
     marginLeft: 'auto',
     marginRight: 'auto'
   };
-  return (
-    <div style={cardStyle}>
-      <div className="card blue-grey darken-1">
-        <div className="card-content white-text">
-          <span className="card-title">{props.content}</span>
-          <p>Likes: {props.likes} </p>
-          <p>Dislikes: {props.dislikes} </p>
-          <p>Posted: {props.formattedWaitTime} ago</p>
-          <div style={centerStyle}>
-            <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleLikeClick}><i className="material-icons">thumb_up</i></button>
-            <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDislikeClick}><i className="material-icons">thumb_down</i></button>
-            <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDeletePost}><i className="material-icons">delete</i></button>
-          </div>
-        </div>
+  const postInformation = 
+  <div style={cardStyle}>
+  <div className="card blue-grey darken-1">
+    <div className="card-content white-text">
+      <span className="card-title">{props.content}</span>
+      <p>Likes: {props.likes} </p>
+      <p>Dislikes: {props.dislikes} </p>
+      <p>Posted: {props.formattedWaitTime} ago</p>
+      <div style={centerStyle}>
+        <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleLikeClick}><i className="material-icons">thumb_up</i></button>
+        <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDislikeClick}><i className="material-icons">thumb_down</i></button>
+      
       </div>
     </div>
-  );
+  </div>
+</div>;
+if(props.currentRouterPath === '/admin'){
+  return (
+    <div>
+    <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDeletePost}><i className="material-icons">delete</i></button>
+    {postInformation}
+    </div>
+  )
+}
+else{
+  return (
+    <div>
+      {postInformation}
+    </div>
+    );
+}
+  
 }
 
 Post.propTypes = {
@@ -57,7 +72,8 @@ Post.propTypes = {
   onNewDislike: PropTypes.func,
   index: PropTypes.number,
   formattedWaitTime: PropTypes.string.isRequired,
-  onDeletePost: PropTypes.func
+  onDeletePost: PropTypes.func,
+  currentRouterPath: PropTypes.string
 };
 
 export default Post;

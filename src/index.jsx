@@ -2,14 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
 import { AppContainer } from 'react-hot-loader';
-import { HashRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import history from './history';
 
 const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <HashRouter>
+      <Router history={history}>
         <Component/>
-      </HashRouter>
+      </Router>
     </AppContainer>,
     document.getElementById('react-app-root')
   );

@@ -17,6 +17,7 @@ function PostList(props) {
           onNewDislike={props.onNewDislike}
           formattedWaitTime={post.formattedWaitTime}
           onDeletePost={props.onDeletePost}
+          currentRouterPath={props.currentRouterPath}
         />
       )}
     </div>
@@ -29,7 +30,8 @@ PostList.propTypes = {
   dislikes: PropTypes.number,
   onNewLike: PropTypes.func,
   onNewDislike: PropTypes.func,
-  onDeletePost: PropTypes.func
+  onDeletePost: PropTypes.func,
+  currentRouterPath: PropTypes.string
 };
 
 export default PostList;

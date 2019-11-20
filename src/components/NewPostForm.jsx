@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import Moment from 'moment';
 import 'materialize-css/dist/css/materialize.min.css';
+import history from '../history'
 
 function NewPostForm(props) {
 
@@ -14,6 +15,7 @@ function NewPostForm(props) {
     event.preventDefault();
     props.onNewPostCreation({content: _content.value, likes: _likes, dislikes: _dislikes, id: v4(), timePosted: new Moment()});
     _content.value = '';
+    history.push("/admin")
   }
 
   var btnStyle = {
