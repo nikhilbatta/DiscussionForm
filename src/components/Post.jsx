@@ -50,6 +50,7 @@ if(props.currentRouterPath === '/admin'){
   return (
     <div>
     <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={handleDeletePost}><i className="material-icons">delete</i></button>
+    <button style={btnStyle} className="btn-small waves-effect waves-light" onClick={props.onPostSelection({content: props.content})}><i className="material-icons">delete</i>SELECT A POST LOL</button>
     {postInformation}
     </div>
   )
@@ -73,7 +74,8 @@ Post.propTypes = {
   index: PropTypes.number,
   formattedWaitTime: PropTypes.string.isRequired,
   onDeletePost: PropTypes.func,
-  currentRouterPath: PropTypes.string
+  currentRouterPath: PropTypes.string,
+  onPostSelection: PropTypes.func
 };
 
 export default Post;

@@ -9,13 +9,14 @@ function Admin(props){
     <div>
       <h2>Admin</h2>
       <PostDetail/>
-        <PostList postList={props.postList} currentRouterPath={props.currentRouterPath} onDeletePost={props.onDelete}/>
+        <PostList postList={props.postList} currentRouterPath={props.currentRouterPath} onDeletePost={props.onDelete} onPostSelection={props.onPostSelection}/>
     </div>
   );
 }
 Admin.propTypes = {
     postList: PropTypes.array,
     currentRouterPath: PropTypes.string,
-    onDeletePost: PropTypes.func
+    onDeletePost: PropTypes.func,
+    onPostSelection: PropTypes.func
 }
 export default Admin;

@@ -18,6 +18,7 @@ function PostList(props) {
           formattedWaitTime={post.formattedWaitTime}
           onDeletePost={props.onDeletePost}
           currentRouterPath={props.currentRouterPath}
+          onPostSelection={props.onPostSelection}
         />
       )}
     </div>
@@ -31,7 +32,8 @@ PostList.propTypes = {
   onNewLike: PropTypes.func,
   onNewDislike: PropTypes.func,
   onDeletePost: PropTypes.func,
-  currentRouterPath: PropTypes.string
+  currentRouterPath: PropTypes.string,
+  onPostSelection: PropTypes.func
 };
 
 export default PostList;

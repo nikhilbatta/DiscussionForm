@@ -11,14 +11,18 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterPostList: []
+      masterPostList: [],
+      selectedPost: null
     };
     this.handleAddingNewPost = this.handleAddingNewPost.bind(this);
     this.handleLikes = this.handleLikes.bind(this);
     this.handleDislikes = this.handleDislikes.bind(this);
     this.handleDeletePost = this.handleDeletePost.bind(this);
+    this.handleChangingSelectedPost = this.handleChangingSelectedPost.bind(this);
   }
-
+  handleChangingSelectedPost(post){
+    this.setState({selectedPost: post})
+  }
   handleAddingNewPost(newPost){
     var newMasterPostList = this.state.masterPostList.slice();
     newPost.formattedWaitTime = (newPost.timePosted).fromNow(true);
@@ -71,7 +75,7 @@ class App extends React.Component {
             onNewLike={this.handleLikes}
             onNewDislike={this.handleDislikes}
             onDeletePost={this.handleDeletePost}/>} />
-            <Route path='/admin' render={(props)=><Admin postList={this.state.masterPostList} currentRouterPath={props.location.pathname} onDelete={this.handleDeletePost}/> }/>
+            <Route path='/admin' render={(props)=><Admin postList={this.state.masterPostList} currentRouterPath={props.location.pathname} onDelete={this.handleDeletePost} onPostSelection={this.handleChangingSelectedPost}/> }/>
             <Route component={Error404}/>
         </Switch>
       </div>

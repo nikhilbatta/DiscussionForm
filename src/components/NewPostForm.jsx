@@ -15,7 +15,7 @@ function NewPostForm(props) {
     event.preventDefault();
     props.onNewPostCreation({content: _content.value, likes: _likes, dislikes: _dislikes, id: v4(), timePosted: new Moment()});
     _content.value = '';
-    history.push("/admin")
+    // history.push("/admin")
   }
 
   var btnStyle = {
